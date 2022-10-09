@@ -1,0 +1,6 @@
+973. K Closest Points to Origin
+
+from math import pow
+class Solution(object):
+    def kClosest(self, points, k):    
+         return [points[i] for d, i in sorted([(math.sqrt(x**2 + y**2), i) for i, [x, y] in enumerate(points)])[:k]]
