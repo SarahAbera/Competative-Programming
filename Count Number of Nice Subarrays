@@ -1,0 +1,24 @@
+class Solution(object):
+    def numberOfSubarrays(self, nums, k):
+        return self.atMost(nums, k) - self.atMost(nums, k-1)
+    def atMost(self, nums,k):
+        
+        countOfSubarrays = 0
+        
+        i,j = 0,0
+        n = len(nums)
+        
+        countOfOdds = 0
+        
+        while j < n:
+            if nums[j] % 2 != 0 : countOfOdds += 1
+                
+            if countOfOdds > k:
+                while countOfOdds > k:
+                    if nums[i] % 2 != 0: countOfOdds -= 1
+                    i += 1
+            
+            countOfSubarrays += j - i + 1
+            j += 1
+        
+        return countOfSubarrays
