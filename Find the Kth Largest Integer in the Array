@@ -1,0 +1,4 @@
+class Solution(object):
+    def kthLargestNumber(self, nums, k):
+        nums = sorted(map(int, nums), reverse=True)
+        return str(nums[k-1])
